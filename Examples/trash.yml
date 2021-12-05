@@ -1,37 +1,3 @@
-# trash-guide-updater
-
-A Docker image that automatically mirrors TRaSH guides to your Sonarr/Radarr instance.
-
-## Docker-Compose
-
-Sample `docker-compose.yml`
-
-```yaml
-version: "2.1"
-services:
-  trash-guides-sync:
-    image: losojos27/trash-guides-sync
-    container_name: trash-guides-sync
-    network_mode: bridge
-    logging:
-      driver: json-file
-    environment:
-      - PUID=1050
-      - PGID=100
-      - TZ=America/Chicago
-      - DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
-    volumes:
-      - "/volume1/docker/appdata/trash-guides-sync/trash.yml:/usr/local/bin/trash.yml"
-    restart: unless-stopped
-```
-
-## Configuration
-
-If not specified, the script will look for `trash.yml` in the same directory as the executable. Default: `/usr/local/bin/trash.yml`
-
-Sample config file:
-
-```yaml
 # A starter config to use with Trash Updater. Most values are set to "reasonable defaults".
 # Update the values below as needed for your instance. You will be required to update the
 # API Key and URL for each instance you want to use.
@@ -89,11 +55,3 @@ radarr:
 #          - name: Quality Profile 2
 #            #score: -9999 # Optional score to assign to all CFs. Overrides scores in the guide.
 #            #reset_unmatched_scores: true # Optionally set other scores to 0 if they are not listed in 'names' above.
-```
-
-## Credits
-
-Based on the [ubuntu:bionic](https://hub.docker.com/_/ubuntu) image
-
-Uses the binary from [rcdailey/trash-updater](https://github.com/rcdailey/trash-updater)
-
