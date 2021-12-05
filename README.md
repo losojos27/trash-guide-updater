@@ -21,9 +21,12 @@ services:
       - TZ=America/Chicago
       - DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
     volumes:
-      - "/volume1/docker/appdata/trash-guides-sync/trash.yml:/usr/local/bin/trash.yml"
+      - "/volume1/docker/appdata/trash-guides-sync/config/trash.yml:/usr/local/bin/trash.yml"
+      - "/volume1/docker/appdata/trash-guides-sync/cache:/root/.config/trash-updater/cache
     restart: unless-stopped
 ```
+
+## [Wiki](https://github.com/rcdailey/trash-updater/tree/master/wiki) <---- wiki for [rcdailey/trash-updater](https://github.com/rcdailey/trash-updater), the binary this container runs
 
 ## Configuration
 
