@@ -10,7 +10,7 @@ Sample `docker-compose.yml`
 version: "2.1"
 services:
   trash-guides-sync:
-    image: losojos27/trash-guides-sync
+    image: docker.io/losojos/trash-guides-sync:0.0.1
     container_name: trash-guides-sync
     network_mode: bridge
     logging:
@@ -22,7 +22,7 @@ services:
       - DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
     volumes:
       - "/volume1/docker/appdata/trash-guides-sync/config/trash.yml:/usr/local/bin/trash.yml"
-      - "/volume1/docker/appdata/trash-guides-sync/cache:/root/.config/trash-updater/cache
+      - "/volume1/docker/appdata/trash-guides-sync/cache:/root/.config/trash-updater/cache"
     restart: unless-stopped
 ```
 
